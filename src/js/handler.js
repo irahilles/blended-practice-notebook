@@ -1,7 +1,7 @@
 import { nanoid } from "nanoid";
 import { saveTaskToLS } from "./local-storage-api";
 import { refs } from "./refs";
-import { addTask } from "./render-tasks";
+import { addTask } from "./render-tasks";  
 
 export function initFormHandler(e) {
     e.preventDefault();
@@ -17,7 +17,7 @@ export function initFormHandler(e) {
       desc: descriptionText,
     }
 
-   saveTaskToLS(task);
-addTask(task);
+    saveTaskToLS(task);
+    addTask(task);
     refs.form.reset();
 }

@@ -16,6 +16,18 @@
 */
 import { refs } from './js/refs.js';
 import { initFormHandler } from './js/handler.js';
-
+import { getTasksFromLS } from './js/local-storage-api.js';
+import { addTask } from './js/render-tasks.js';
+import { removeTask } from './js/task-remove.js';
 
 refs.form.addEventListener('submit', initFormHandler);
+
+window.addEventListener('DOMContentLoaded', () => {
+    const tasks = getTasksFromLS();
+
+    tasks.forEach(task => {
+        addTask(task);
+    });
+});
+
+refs.list.addEventListener('click', removeTask);
