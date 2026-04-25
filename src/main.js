@@ -15,7 +15,7 @@
   </li>
 */
 import { refs } from './js/refs.js';
-import { initFormHandler } from './js/tasks';
-import { createMarkup } from './js/markup-tasks';
+import { initFormHandler } from './js/handler.js';
 
-initFormHandler(refs, createMarkup);
+
+refs.form.addEventListener('submit', initFormHandler);
