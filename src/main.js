@@ -14,3 +14,32 @@
       <p>Текст</p>
   </li>
 */
+const refs = {
+  titleInput: document.querySelector('input[name="taskName"]'),
+  descriptionInput: document.querySelector('input[name="taskDescription"]'),
+  form: document.querySelector('.header-form'),
+  list: document.querySelector('.tasks-list'),
+  deleteButton: document.querySelectorAll('task-list-item-btn'),
+}
+
+refs.form.addEventListener('submit', (e) =>{
+  e.preventDefault();
+  const titleText = refs.titleInput.value;
+  const descriptionText = refs.descriptionInput.value;
+if(!titleText || !descriptionText)return;
+const markup = createMarkup(titleText, descriptionText);
+refs.list.insertAdjacentHTML('beforeend', markup);
+refs.form.reset();
+})
+
+function createMarkup(title, description){
+  return `<li class="task-list-item">
+      <button class="task-list-item-btn">Delete</button>
+      <h3>${title}</h3>
+      <p>${description}</p>
+  </li>`
+}
+
+refs.list.addEventListener('click', (e)=>{
+  
+})
